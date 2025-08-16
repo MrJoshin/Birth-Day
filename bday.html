@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .active {
+      display: flex;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ff4da6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ff1a8c;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      width: 90%;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    h1 { font-size: 3em; color: #ff1a8c; }
+    p { font-size: 1.3em; max-width: 600px; }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: Welcome -->
+  <div class="page active" id="page1">
+    <h1>🎉 Happy Birthday 🎉</h1>
+    <p>Welcome to a special surprise just for you ❤️</p>
+    <button class="btn" onclick="nextPage(2)">Open Surprise</button>
+  </div>
+
+  <!-- Page 2: Message -->
+  <div class="page" id="page2">
+    <h1>To My Favorite Person 💖</h1>
+    <p>On this special day, I just want you to know how much you mean to me. 
+       You bring so much happiness, love, and joy into my life, and I’m truly lucky to have you. 
+       May this year bring you endless smiles and unforgettable memories. 🎂✨</p>
+    <button class="btn" onclick="nextPage(3)">Next ➡️</button>
+  </div>
+
+  <!-- Page 3: Photo Gallery -->
+  <div class="page" id="page3">
+    <h1>Our Beautiful Memories 📸</h1>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/200" alt="Memory 1">
+      <img src="https://via.placeholder.com/200" alt="Memory 2">
+      <img src="https://via.placeholder.com/200" alt="Memory 3">
+      <img src="https://via.placeholder.com/200" alt="Memory 4">
+    </div>
+    <h2 style="margin-top:20px; color:#ff4da6; font-size:2em;">💐 Happy Birthday Once Again 💐</h2>
+  </div>
+
+  <script>
+    function nextPage(num) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + num).classList.add('active');
+    }
+  </script>
+</body>
+</html>
